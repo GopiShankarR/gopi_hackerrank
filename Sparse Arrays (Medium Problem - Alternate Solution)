@@ -1,0 +1,11 @@
+vector<int> matchingStrings(vector<string> stringList, vector<string> queries) {
+    vector<int> result;
+    unordered_map<string, int> hashMap;
+    for(const auto &i: stringList) {
+        hashMap[i]++;
+    }
+    for(const auto &i: queries) {
+        result.push_back(hashMap[i]);
+    }
+    return result;
+}
