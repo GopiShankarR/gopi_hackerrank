@@ -1,0 +1,16 @@
+string superReducedString(string s) {
+    int i = 1;
+    int n = s.size();
+    while(i < n) {
+        if(s[i - 1] == s[i]) {
+            s.erase(i - 1, 2);
+            i = 1;
+        } else {
+            i++;
+        }
+    }
+    if(s.empty()) {
+        return "Empty String";
+    }
+    return s;
+}
