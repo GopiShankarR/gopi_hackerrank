@@ -1,0 +1,18 @@
+vector<int> dynamicArray(int n, vector<vector<int>> queries) {
+    vector<vector<int>> arr(n);
+    vector<int> result;
+    int lastAnswer = 0;
+    for(auto i: queries) {
+        int t = i[0];
+        int x = i[1];
+        int y = i[2];
+        int index = ((x ^ lastAnswer) % n);
+        if(t == 1) {
+            arr[index].push_back(y);
+        } else if(t == 2) {
+            lastAnswer = arr[index][y % arr[index].size()];
+            result.push_back(lastAnswer);
+        }
+    }
+    return result;
+}
