@@ -1,0 +1,11 @@
+int marsExploration(string s) {
+    int count = 0;
+    int n = s.length();
+    string message = "SOS";
+    for(int i = 0; i < n; i++) {
+        if(s[i] != message[i % 3]) {
+            count++;
+        }
+    }
+    return count;
+}
