@@ -1,0 +1,11 @@
+string caesarCipher(string s, int k) {
+    int n = s.length();
+    int i = 0;
+    for(char &c: s) {
+       if(isalpha(c)){
+           char a = isupper(c) ? 'A' : 'a';
+           c = a + (c - a + k) % 26;
+       }
+    }
+    return s;
+}
