@@ -1,0 +1,28 @@
+bool isPalindrome(string s){
+     string r = s;
+     reverse(r.begin(), r.end());
+     return s == r;
+ }
+
+int palindromeIndex(string input) {
+    int n = input.size();
+    int s, e;
+    for(s = 0, e = n - 1; s < e; s++, e--){
+        if(input[s] != input[e]) { 
+            break;
+        }
+    }
+    if(s >= e) {
+        return -1;
+    }
+    string s1 = input, s2 = input;
+    s1.erase(s1.begin() + s);
+    if(isPalindrome(s1)) {
+        return s;
+    }
+    s2.erase(s2.begin() + e);
+    if(isPalindrome(s2)) {
+        return e;
+    }
+    return -1;
+}
