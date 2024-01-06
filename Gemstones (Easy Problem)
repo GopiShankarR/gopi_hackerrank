@@ -1,0 +1,18 @@
+int gemstones(vector<string> arr) {
+    int count = 0;
+    int n = arr.size();
+    string alphabets = "abcdefghijklmnopqrstuvwxyz";
+    int alphabetsSize = alphabets.size();
+    for(int i = 0; i < alphabetsSize; i++) {
+        int cp = 0;
+        for(int j = 0; j < n; j++) {
+            if(arr[j].find(alphabets[i]) != string::npos) {
+                cp++;
+            }
+        }
+        if(cp == n) {
+            count++;
+        }
+    }
+    return count;
+}
