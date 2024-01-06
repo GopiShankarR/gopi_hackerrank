@@ -1,0 +1,17 @@
+int anagram(string s) {
+    int count = 0;
+    int n = s.length();
+    if (n % 2 == 0) {
+        unordered_map<char, int> lMap, rMap;
+        for(size_t i = 0; i < n / 2; i++) {
+            lMap[s[i]]++;
+            rMap[s[i + s.length() / 2]]++;
+        }
+        for(const auto& lPair: lMap) {
+            count += rMap[lPair.first] < lPair.second ? lPair.second - rMap[lPair.first] : 0;
+        }
+    } else {
+        count = -1;
+    }
+    return count;
+}
