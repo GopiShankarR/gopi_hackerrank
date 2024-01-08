@@ -1,0 +1,12 @@
+int stringConstruction(string s) {
+    int n = s.length();
+    map<char, int> hashMap;
+    int count = 0;
+    for(int i = 0; i < n; i++) {
+        if(!hashMap[s[i]]) {
+            hashMap[s[i]] = 1;
+            count++;
+        }
+    }
+    return count;
+}
