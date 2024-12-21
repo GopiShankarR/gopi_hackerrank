@@ -1,0 +1,37 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int queue;
+    cin >> queue;
+    vector<pair<int, int>> queueArray;
+    for(int i = 0; i < queue; i++) {
+        int t;
+        cin >> t;
+        if(t == 2 || t == 3) {
+            queueArray.push_back({t, 0});
+        } else {
+            int x;
+            cin >> x;
+            queueArray.push_back({t, x});
+        }
+    } 
+    vector<int> returnArray;
+    int n = queueArray.size();
+    for(int i = 0; i < n; i++) {
+        if(queueArray[i].first == 1) {
+            returnArray.push_back(queueArray[i].second);
+        } else if(queueArray[i].first == 2) {
+            returnArray.erase(returnArray.begin());
+        } else if(queueArray[i].first == 3) {
+            auto it = returnArray.begin();
+            cout << *it << endl;
+        }
+    }
+    return 0;
+}
