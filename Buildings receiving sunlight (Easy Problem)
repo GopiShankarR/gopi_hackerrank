@@ -1,0 +1,11 @@
+class Solution:
+    def longest(self, arr):
+        max_height = float('-inf')
+        count = 0
+
+        for height in arr:
+            if height > max_height:
+                count += 1
+                max_height = height
+
+        return count
