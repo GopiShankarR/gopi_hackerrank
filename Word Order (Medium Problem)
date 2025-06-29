@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import OrderedDict
+
+n = int(input())
+count = 0
+hashmap = OrderedDict()
+
+for i in range(n):
+    word = str(input())
+    if word in hashmap:
+        hashmap[word] += 1
+    else:
+        hashmap[word] = 1
+        count += 1
+print(count)
+print(*(hashmap[word] for word in hashmap))
